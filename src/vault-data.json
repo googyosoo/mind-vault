@@ -1,0 +1,1014 @@
+{
+  "timestamp": "2026-04-12T13:49:05.196Z",
+  "project": "mind-vault",
+  "nodes": [
+    {
+      "id": "eslint.config.js",
+      "type": "file",
+      "content": "import js from '@eslint/js'\nimport globals from 'globals'\nimport reactHooks from 'eslint-plugin-react-hooks'\nimport reactRefresh from 'eslint-plugin-react-refresh'\nimport tseslint from 'typescript-eslint'\nimport { defineConfig, globalIgnores } from 'eslint/config'\n\nexport default defineConfig([\n  globalIgnores(['dist']),\n  {\n    files: ['**/*.{ts,tsx}'],\n    extends: [\n      js.configs.recommended,\n      tseslint.configs.recommended,\n      reactHooks.configs.flat.recommended,\n      reactRefresh.",
+      "metadata": {
+        "size": 616,
+        "lastModified": "2026-04-09T04:26:01.844Z"
+      }
+    },
+    {
+      "id": "scripts\\ingest.js",
+      "type": "file",
+      "content": "import fs from 'fs';\nimport path from 'path';\n\nconst IGNORE_DIRS = ['node_modules', '.git', 'dist', 'build', '.next', '.gemini'];\nconst EXTENSIONS = ['.js', '.ts', '.jsx', '.tsx'];\n\nfunction ingest(targetDir) {\n  const absoluteTarget = path.resolve(targetDir);\n  console.log(`🚀 Starting ingestion for: ${absoluteTarget}`);\n\n  const nodes = [];\n  const links = [];\n\n  function walk(dir) {\n    const files = fs.readdirSync(dir);\n\n    for (const file of files) {\n      const fullPath = path.join(dir, f",
+      "metadata": {
+        "size": 2850,
+        "lastModified": "2026-04-12T13:48:57.671Z"
+      }
+    },
+    {
+      "id": "scripts\\ingest.js::IGNORE_DIRS",
+      "type": "class",
+      "content": "Defined in scripts\\ingest.js",
+      "metadata": {
+        "file": "scripts\\ingest.js"
+      }
+    },
+    {
+      "id": "scripts\\ingest.js::EXTENSIONS",
+      "type": "class",
+      "content": "Defined in scripts\\ingest.js",
+      "metadata": {
+        "file": "scripts\\ingest.js"
+      }
+    },
+    {
+      "id": "scripts\\ingest.js::ingest",
+      "type": "function",
+      "content": "Defined in scripts\\ingest.js",
+      "metadata": {
+        "file": "scripts\\ingest.js"
+      }
+    },
+    {
+      "id": "scripts\\ingest.js::absoluteTarget",
+      "type": "function",
+      "content": "Defined in scripts\\ingest.js",
+      "metadata": {
+        "file": "scripts\\ingest.js"
+      }
+    },
+    {
+      "id": "scripts\\ingest.js::nodes",
+      "type": "function",
+      "content": "Defined in scripts\\ingest.js",
+      "metadata": {
+        "file": "scripts\\ingest.js"
+      }
+    },
+    {
+      "id": "scripts\\ingest.js::links",
+      "type": "function",
+      "content": "Defined in scripts\\ingest.js",
+      "metadata": {
+        "file": "scripts\\ingest.js"
+      }
+    },
+    {
+      "id": "scripts\\ingest.js::walk",
+      "type": "function",
+      "content": "Defined in scripts\\ingest.js",
+      "metadata": {
+        "file": "scripts\\ingest.js"
+      }
+    },
+    {
+      "id": "scripts\\ingest.js::files",
+      "type": "function",
+      "content": "Defined in scripts\\ingest.js",
+      "metadata": {
+        "file": "scripts\\ingest.js"
+      }
+    },
+    {
+      "id": "scripts\\ingest.js::fullPath",
+      "type": "function",
+      "content": "Defined in scripts\\ingest.js",
+      "metadata": {
+        "file": "scripts\\ingest.js"
+      }
+    },
+    {
+      "id": "scripts\\ingest.js::stat",
+      "type": "function",
+      "content": "Defined in scripts\\ingest.js",
+      "metadata": {
+        "file": "scripts\\ingest.js"
+      }
+    },
+    {
+      "id": "scripts\\ingest.js::relativePath",
+      "type": "function",
+      "content": "Defined in scripts\\ingest.js",
+      "metadata": {
+        "file": "scripts\\ingest.js"
+      }
+    },
+    {
+      "id": "scripts\\ingest.js::content",
+      "type": "function",
+      "content": "Defined in scripts\\ingest.js",
+      "metadata": {
+        "file": "scripts\\ingest.js"
+      }
+    },
+    {
+      "id": "scripts\\ingest.js::importRegex",
+      "type": "function",
+      "content": "Defined in scripts\\ingest.js",
+      "metadata": {
+        "file": "scripts\\ingest.js"
+      }
+    },
+    {
+      "id": "scripts\\ingest.js::entityRegex",
+      "type": "function",
+      "content": "Defined in scripts\\ingest.js",
+      "metadata": {
+        "file": "scripts\\ingest.js"
+      }
+    },
+    {
+      "id": "scripts\\ingest.js::entityName",
+      "type": "function",
+      "content": "Defined in scripts\\ingest.js",
+      "metadata": {
+        "file": "scripts\\ingest.js"
+      }
+    },
+    {
+      "id": "scripts\\ingest.js::result",
+      "type": "function",
+      "content": "Defined in scripts\\ingest.js",
+      "metadata": {
+        "file": "scripts\\ingest.js"
+      }
+    },
+    {
+      "id": "scripts\\ingest.js::outputPath",
+      "type": "function",
+      "content": "Defined in scripts\\ingest.js",
+      "metadata": {
+        "file": "scripts\\ingest.js"
+      }
+    },
+    {
+      "id": "scripts\\ingest.js::target",
+      "type": "function",
+      "content": "Defined in scripts\\ingest.js",
+      "metadata": {
+        "file": "scripts\\ingest.js"
+      }
+    },
+    {
+      "id": "src\\App.tsx",
+      "type": "file",
+      "content": "import React, { useState, useEffect } from 'react';\nimport { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';\nimport { Layout, Search, Share2, Box, Database, Clock, Settings, Menu, X, ChevronRight, MessageSquare, Sparkles } from 'lucide-react';\nimport { motion, AnimatePresence } from 'framer-motion';\n\n// Components\nimport VaultDashboard from './components/VaultDashboard';\nimport KnowledgeGraph from './components/KnowledgeGraph';\nimport WikiExplorer from './components/WikiE",
+      "metadata": {
+        "size": 4248,
+        "lastModified": "2026-04-12T13:14:45.017Z"
+      }
+    },
+    {
+      "id": "src\\App.tsx::SidebarLink",
+      "type": "class",
+      "content": "Defined in src\\App.tsx",
+      "metadata": {
+        "file": "src\\App.tsx"
+      }
+    },
+    {
+      "id": "src\\components\\AIChatHub.tsx",
+      "type": "file",
+      "content": "import React, { useState, useRef, useEffect } from 'react';\nimport { motion, AnimatePresence } from 'framer-motion';\nimport { Send, Sparkles, MessageSquare, Bot, User, Loader2, RefreshCcw, Globe, FileCode } from 'lucide-react';\nimport { aiService } from '../lib/ai-service';\nimport { vault } from '../lib/vault-engine';\n\ninterface Message {\n  role: 'user' | 'model';\n  content: string;\n}\n\nconst AIChatHub: React.FC = () => {\n  const [messages, setMessages] = useState<Message[]>([]);\n  const [input, ",
+      "metadata": {
+        "size": 7069,
+        "lastModified": "2026-04-12T13:14:25.714Z"
+      }
+    },
+    {
+      "id": "src\\components\\AIChatHub.tsx::scrollRef",
+      "type": "function",
+      "content": "Defined in src\\components\\AIChatHub.tsx",
+      "metadata": {
+        "file": "src\\components\\AIChatHub.tsx"
+      }
+    },
+    {
+      "id": "src\\components\\AIChatHub.tsx::handleSend",
+      "type": "function",
+      "content": "Defined in src\\components\\AIChatHub.tsx",
+      "metadata": {
+        "file": "src\\components\\AIChatHub.tsx"
+      }
+    },
+    {
+      "id": "src\\components\\AIChatHub.tsx::userMessage",
+      "type": "function",
+      "content": "Defined in src\\components\\AIChatHub.tsx",
+      "metadata": {
+        "file": "src\\components\\AIChatHub.tsx"
+      }
+    },
+    {
+      "id": "src\\components\\AIChatHub.tsx::context",
+      "type": "function",
+      "content": "Defined in src\\components\\AIChatHub.tsx",
+      "metadata": {
+        "file": "src\\components\\AIChatHub.tsx"
+      }
+    },
+    {
+      "id": "src\\components\\AIChatHub.tsx::response",
+      "type": "function",
+      "content": "Defined in src\\components\\AIChatHub.tsx",
+      "metadata": {
+        "file": "src\\components\\AIChatHub.tsx"
+      }
+    },
+    {
+      "id": "src\\components\\AIChatHub.tsx::resetChat",
+      "type": "function",
+      "content": "Defined in src\\components\\AIChatHub.tsx",
+      "metadata": {
+        "file": "src\\components\\AIChatHub.tsx"
+      }
+    },
+    {
+      "id": "src\\components\\AIChatHub.tsx::ContextTypeBtn",
+      "type": "class",
+      "content": "Defined in src\\components\\AIChatHub.tsx",
+      "metadata": {
+        "file": "src\\components\\AIChatHub.tsx"
+      }
+    },
+    {
+      "id": "src\\components\\KnowledgeGraph.tsx",
+      "type": "file",
+      "content": "import React, { useRef, useEffect, useState } from 'react';\nimport ForceGraph2D from 'react-force-graph-2d';\nimport { motion } from 'framer-motion';\nimport { ZoomIn, ZoomOut, Filter, Maximize } from 'lucide-react';\n\nconst KnowledgeGraph: React.FC = () => {\n  const graphRef = useRef<any>();\n  const [data] = useState({\n    nodes: [\n      { id: 'App.tsx', group: 1, val: 20 },\n      { id: 'VaultDashboard.tsx', group: 1, val: 15 },\n      { id: 'KnowledgeGraph.tsx', group: 1, val: 15 },\n      { id: 'W",
+      "metadata": {
+        "size": 4387,
+        "lastModified": "2026-04-12T08:34:29.505Z"
+      }
+    },
+    {
+      "id": "src\\components\\KnowledgeGraph.tsx::graphRef",
+      "type": "function",
+      "content": "Defined in src\\components\\KnowledgeGraph.tsx",
+      "metadata": {
+        "file": "src\\components\\KnowledgeGraph.tsx"
+      }
+    },
+    {
+      "id": "src\\components\\KnowledgeGraph.tsx::label",
+      "type": "function",
+      "content": "Defined in src\\components\\KnowledgeGraph.tsx",
+      "metadata": {
+        "file": "src\\components\\KnowledgeGraph.tsx"
+      }
+    },
+    {
+      "id": "src\\components\\KnowledgeGraph.tsx::fontSize",
+      "type": "function",
+      "content": "Defined in src\\components\\KnowledgeGraph.tsx",
+      "metadata": {
+        "file": "src\\components\\KnowledgeGraph.tsx"
+      }
+    },
+    {
+      "id": "src\\components\\KnowledgeGraph.tsx::textWidth",
+      "type": "function",
+      "content": "Defined in src\\components\\KnowledgeGraph.tsx",
+      "metadata": {
+        "file": "src\\components\\KnowledgeGraph.tsx"
+      }
+    },
+    {
+      "id": "src\\components\\KnowledgeGraph.tsx::bckgDimensions",
+      "type": "function",
+      "content": "Defined in src\\components\\KnowledgeGraph.tsx",
+      "metadata": {
+        "file": "src\\components\\KnowledgeGraph.tsx"
+      }
+    },
+    {
+      "id": "src\\components\\KnowledgeGraph.tsx::ControlButton",
+      "type": "class",
+      "content": "Defined in src\\components\\KnowledgeGraph.tsx",
+      "metadata": {
+        "file": "src\\components\\KnowledgeGraph.tsx"
+      }
+    },
+    {
+      "id": "src\\components\\KnowledgeGraph.tsx::LegendItem",
+      "type": "class",
+      "content": "Defined in src\\components\\KnowledgeGraph.tsx",
+      "metadata": {
+        "file": "src\\components\\KnowledgeGraph.tsx"
+      }
+    },
+    {
+      "id": "src\\components\\VaultDashboard.tsx",
+      "type": "file",
+      "content": "import React from 'react';\nimport { motion } from 'framer-motion';\nimport { Search, Zap, Code, Shield, HardDrive, ArrowUpRight, Sparkles, Loader2 } from 'lucide-react';\nimport { aiService } from '../lib/ai-service';\n\nconst VaultDashboard: React.FC = () => {\n  const [insight, setInsight] = React.useState<string>('');\n  const [isInsightLoading, setIsInsightLoading] = React.useState(false);\n\n  React.useEffect(() => {\n    const fetchInsight = async () => {\n      setIsInsightLoading(true);\n      cons",
+      "metadata": {
+        "size": 7136,
+        "lastModified": "2026-04-12T12:45:27.925Z"
+      }
+    },
+    {
+      "id": "src\\components\\VaultDashboard.tsx::fetchInsight",
+      "type": "function",
+      "content": "Defined in src\\components\\VaultDashboard.tsx",
+      "metadata": {
+        "file": "src\\components\\VaultDashboard.tsx"
+      }
+    },
+    {
+      "id": "src\\components\\VaultDashboard.tsx::result",
+      "type": "function",
+      "content": "Defined in src\\components\\VaultDashboard.tsx",
+      "metadata": {
+        "file": "src\\components\\VaultDashboard.tsx"
+      }
+    },
+    {
+      "id": "src\\components\\VaultDashboard.tsx::StatCard",
+      "type": "class",
+      "content": "Defined in src\\components\\VaultDashboard.tsx",
+      "metadata": {
+        "file": "src\\components\\VaultDashboard.tsx"
+      }
+    },
+    {
+      "id": "src\\components\\VaultDashboard.tsx::HealthItem",
+      "type": "class",
+      "content": "Defined in src\\components\\VaultDashboard.tsx",
+      "metadata": {
+        "file": "src\\components\\VaultDashboard.tsx"
+      }
+    },
+    {
+      "id": "src\\components\\WikiExplorer.tsx",
+      "type": "file",
+      "content": "import React, { useState } from 'react';\nimport { motion } from 'framer-motion';\nimport { Book, FileText, Hash, Link as LinkIcon, Search, Star, ExternalLink, Sparkles, Loader2 } from 'lucide-react';\nimport { aiService } from '../lib/ai-service';\n\nconst WikiExplorer: React.FC = () => {\n  const [selectedArticle, setSelectedArticle] = useState<string>('Overview');\n  const [summary, setSummary] = useState<string>('');\n  const [isLoading, setIsLoading] = useState(false);\n\n  const handleAISummarize = ",
+      "metadata": {
+        "size": 7478,
+        "lastModified": "2026-04-12T12:45:17.305Z"
+      }
+    },
+    {
+      "id": "src\\components\\WikiExplorer.tsx::handleAISummarize",
+      "type": "function",
+      "content": "Defined in src\\components\\WikiExplorer.tsx",
+      "metadata": {
+        "file": "src\\components\\WikiExplorer.tsx"
+      }
+    },
+    {
+      "id": "src\\components\\WikiExplorer.tsx::mockContent",
+      "type": "function",
+      "content": "Defined in src\\components\\WikiExplorer.tsx",
+      "metadata": {
+        "file": "src\\components\\WikiExplorer.tsx"
+      }
+    },
+    {
+      "id": "src\\components\\WikiExplorer.tsx::result",
+      "type": "function",
+      "content": "Defined in src\\components\\WikiExplorer.tsx",
+      "metadata": {
+        "file": "src\\components\\WikiExplorer.tsx"
+      }
+    },
+    {
+      "id": "src\\components\\WikiExplorer.tsx::articles",
+      "type": "function",
+      "content": "Defined in src\\components\\WikiExplorer.tsx",
+      "metadata": {
+        "file": "src\\components\\WikiExplorer.tsx"
+      }
+    },
+    {
+      "id": "src\\lib\\ai-service.ts",
+      "type": "file",
+      "content": "import { GoogleGenerativeAI } from \"@google/generative-ai\";\n\nconst API_KEY = import.meta.env.VITE_GEMINI_API_KEY;\nconst genAI = new GoogleGenerativeAI(API_KEY);\n\nexport class AIService {\n  private model: any;\n  private chatSession: any = null;\n\n  constructor() {\n    this.model = genAI.getGenerativeModel({ \n      model: \"gemini-1.5-flash\",\n      systemInstruction: \"You are the MindVault Project Manager. Your goal is to guide the user through their codebase, ensure high-level architecture standard",
+      "metadata": {
+        "size": 3044,
+        "lastModified": "2026-04-12T13:14:03.224Z"
+      }
+    },
+    {
+      "id": "src\\lib\\ai-service.ts::API_KEY",
+      "type": "class",
+      "content": "Defined in src\\lib\\ai-service.ts",
+      "metadata": {
+        "file": "src\\lib\\ai-service.ts"
+      }
+    },
+    {
+      "id": "src\\lib\\ai-service.ts::genAI",
+      "type": "function",
+      "content": "Defined in src\\lib\\ai-service.ts",
+      "metadata": {
+        "file": "src\\lib\\ai-service.ts"
+      }
+    },
+    {
+      "id": "src\\lib\\ai-service.ts::AIService",
+      "type": "class",
+      "content": "Defined in src\\lib\\ai-service.ts",
+      "metadata": {
+        "file": "src\\lib\\ai-service.ts"
+      }
+    },
+    {
+      "id": "src\\lib\\ai-service.ts::result",
+      "type": "function",
+      "content": "Defined in src\\lib\\ai-service.ts",
+      "metadata": {
+        "file": "src\\lib\\ai-service.ts"
+      }
+    },
+    {
+      "id": "src\\lib\\ai-service.ts::prompt",
+      "type": "function",
+      "content": "Defined in src\\lib\\ai-service.ts",
+      "metadata": {
+        "file": "src\\lib\\ai-service.ts"
+      }
+    },
+    {
+      "id": "src\\lib\\ai-service.ts::result",
+      "type": "function",
+      "content": "Defined in src\\lib\\ai-service.ts",
+      "metadata": {
+        "file": "src\\lib\\ai-service.ts"
+      }
+    },
+    {
+      "id": "src\\lib\\ai-service.ts::prompt",
+      "type": "function",
+      "content": "Defined in src\\lib\\ai-service.ts",
+      "metadata": {
+        "file": "src\\lib\\ai-service.ts"
+      }
+    },
+    {
+      "id": "src\\lib\\ai-service.ts::result",
+      "type": "function",
+      "content": "Defined in src\\lib\\ai-service.ts",
+      "metadata": {
+        "file": "src\\lib\\ai-service.ts"
+      }
+    },
+    {
+      "id": "src\\lib\\ai-service.ts::aiService",
+      "type": "function",
+      "content": "Defined in src\\lib\\ai-service.ts",
+      "metadata": {
+        "file": "src\\lib\\ai-service.ts"
+      }
+    },
+    {
+      "id": "src\\lib\\vault-engine.ts",
+      "type": "file",
+      "content": "import MiniSearch from 'minisearch';\n\nexport interface VaultNode {\n  id: string;\n  type: 'file' | 'function' | 'class' | 'concept';\n  content: string;\n  metadata: any;\n}\n\nexport interface VaultLink {\n  source: string;\n  target: string;\n  type: 'import' | 'call' | 'mention';\n}\n\nexport class VaultEngine {\n  private nodes: VaultNode[] = [];\n  private links: VaultLink[] = [];\n  private searchIndex: MiniSearch;\n\n  constructor() {\n    this.searchIndex = new MiniSearch({\n      fields: ['id', 'content']",
+      "metadata": {
+        "size": 2356,
+        "lastModified": "2026-04-12T13:14:10.229Z"
+      }
+    },
+    {
+      "id": "src\\lib\\vault-engine.ts::VaultEngine",
+      "type": "class",
+      "content": "Defined in src\\lib\\vault-engine.ts",
+      "metadata": {
+        "file": "src\\lib\\vault-engine.ts"
+      }
+    },
+    {
+      "id": "src\\lib\\vault-engine.ts::fileList",
+      "type": "function",
+      "content": "Defined in src\\lib\\vault-engine.ts",
+      "metadata": {
+        "file": "src\\lib\\vault-engine.ts"
+      }
+    },
+    {
+      "id": "src\\lib\\vault-engine.ts::entitySummary",
+      "type": "function",
+      "content": "Defined in src\\lib\\vault-engine.ts",
+      "metadata": {
+        "file": "src\\lib\\vault-engine.ts"
+      }
+    },
+    {
+      "id": "src\\lib\\vault-engine.ts::vault",
+      "type": "function",
+      "content": "Defined in src\\lib\\vault-engine.ts",
+      "metadata": {
+        "file": "src\\lib\\vault-engine.ts"
+      }
+    },
+    {
+      "id": "src\\main.tsx",
+      "type": "file",
+      "content": "import { StrictMode } from 'react'\nimport { createRoot } from 'react-dom/client'\nimport './index.css'\nimport App from './App.tsx'\n\ncreateRoot(document.getElementById('root')!).render(\n  <StrictMode>\n    <App />\n  </StrictMode>,\n)\n",
+      "metadata": {
+        "size": 230,
+        "lastModified": "2026-04-09T04:26:02.112Z"
+      }
+    },
+    {
+      "id": "vite.config.ts",
+      "type": "file",
+      "content": "import { defineConfig } from 'vite'\nimport react from '@vitejs/plugin-react'\n\n// https://vite.dev/config/\nexport default defineConfig({\n  plugins: [react()],\n})\n",
+      "metadata": {
+        "size": 161,
+        "lastModified": "2026-04-09T04:26:02.096Z"
+      }
+    }
+  ],
+  "links": [
+    {
+      "source": "eslint.config.js",
+      "target": "@eslint/js",
+      "type": "import"
+    },
+    {
+      "source": "eslint.config.js",
+      "target": "globals",
+      "type": "import"
+    },
+    {
+      "source": "eslint.config.js",
+      "target": "eslint-plugin-react-hooks",
+      "type": "import"
+    },
+    {
+      "source": "eslint.config.js",
+      "target": "eslint-plugin-react-refresh",
+      "type": "import"
+    },
+    {
+      "source": "eslint.config.js",
+      "target": "typescript-eslint",
+      "type": "import"
+    },
+    {
+      "source": "eslint.config.js",
+      "target": "eslint/config",
+      "type": "import"
+    },
+    {
+      "source": "scripts\\ingest.js",
+      "target": "fs",
+      "type": "import"
+    },
+    {
+      "source": "scripts\\ingest.js",
+      "target": "path",
+      "type": "import"
+    },
+    {
+      "source": "scripts\\ingest.js",
+      "target": "scripts\\ingest.js::IGNORE_DIRS",
+      "type": "mention"
+    },
+    {
+      "source": "scripts\\ingest.js",
+      "target": "scripts\\ingest.js::EXTENSIONS",
+      "type": "mention"
+    },
+    {
+      "source": "scripts\\ingest.js",
+      "target": "scripts\\ingest.js::ingest",
+      "type": "mention"
+    },
+    {
+      "source": "scripts\\ingest.js",
+      "target": "scripts\\ingest.js::absoluteTarget",
+      "type": "mention"
+    },
+    {
+      "source": "scripts\\ingest.js",
+      "target": "scripts\\ingest.js::nodes",
+      "type": "mention"
+    },
+    {
+      "source": "scripts\\ingest.js",
+      "target": "scripts\\ingest.js::links",
+      "type": "mention"
+    },
+    {
+      "source": "scripts\\ingest.js",
+      "target": "scripts\\ingest.js::walk",
+      "type": "mention"
+    },
+    {
+      "source": "scripts\\ingest.js",
+      "target": "scripts\\ingest.js::files",
+      "type": "mention"
+    },
+    {
+      "source": "scripts\\ingest.js",
+      "target": "scripts\\ingest.js::fullPath",
+      "type": "mention"
+    },
+    {
+      "source": "scripts\\ingest.js",
+      "target": "scripts\\ingest.js::stat",
+      "type": "mention"
+    },
+    {
+      "source": "scripts\\ingest.js",
+      "target": "scripts\\ingest.js::relativePath",
+      "type": "mention"
+    },
+    {
+      "source": "scripts\\ingest.js",
+      "target": "scripts\\ingest.js::content",
+      "type": "mention"
+    },
+    {
+      "source": "scripts\\ingest.js",
+      "target": "scripts\\ingest.js::importRegex",
+      "type": "mention"
+    },
+    {
+      "source": "scripts\\ingest.js",
+      "target": "scripts\\ingest.js::entityRegex",
+      "type": "mention"
+    },
+    {
+      "source": "scripts\\ingest.js",
+      "target": "scripts\\ingest.js::entityName",
+      "type": "mention"
+    },
+    {
+      "source": "scripts\\ingest.js",
+      "target": "scripts\\ingest.js::result",
+      "type": "mention"
+    },
+    {
+      "source": "scripts\\ingest.js",
+      "target": "scripts\\ingest.js::outputPath",
+      "type": "mention"
+    },
+    {
+      "source": "scripts\\ingest.js",
+      "target": "scripts\\ingest.js::target",
+      "type": "mention"
+    },
+    {
+      "source": "src\\App.tsx",
+      "target": "react",
+      "type": "import"
+    },
+    {
+      "source": "src\\App.tsx",
+      "target": "react-router-dom",
+      "type": "import"
+    },
+    {
+      "source": "src\\App.tsx",
+      "target": "lucide-react",
+      "type": "import"
+    },
+    {
+      "source": "src\\App.tsx",
+      "target": "framer-motion",
+      "type": "import"
+    },
+    {
+      "source": "src\\App.tsx",
+      "target": "./components/VaultDashboard",
+      "type": "import"
+    },
+    {
+      "source": "src\\App.tsx",
+      "target": "./components/KnowledgeGraph",
+      "type": "import"
+    },
+    {
+      "source": "src\\App.tsx",
+      "target": "./components/WikiExplorer",
+      "type": "import"
+    },
+    {
+      "source": "src\\App.tsx",
+      "target": "./components/AIChatHub",
+      "type": "import"
+    },
+    {
+      "source": "src\\App.tsx",
+      "target": "src\\App.tsx::SidebarLink",
+      "type": "mention"
+    },
+    {
+      "source": "src\\components\\AIChatHub.tsx",
+      "target": "react",
+      "type": "import"
+    },
+    {
+      "source": "src\\components\\AIChatHub.tsx",
+      "target": "framer-motion",
+      "type": "import"
+    },
+    {
+      "source": "src\\components\\AIChatHub.tsx",
+      "target": "lucide-react",
+      "type": "import"
+    },
+    {
+      "source": "src\\components\\AIChatHub.tsx",
+      "target": "../lib/ai-service",
+      "type": "import"
+    },
+    {
+      "source": "src\\components\\AIChatHub.tsx",
+      "target": "../lib/vault-engine",
+      "type": "import"
+    },
+    {
+      "source": "src\\components\\AIChatHub.tsx",
+      "target": "src\\components\\AIChatHub.tsx::scrollRef",
+      "type": "mention"
+    },
+    {
+      "source": "src\\components\\AIChatHub.tsx",
+      "target": "src\\components\\AIChatHub.tsx::handleSend",
+      "type": "mention"
+    },
+    {
+      "source": "src\\components\\AIChatHub.tsx",
+      "target": "src\\components\\AIChatHub.tsx::userMessage",
+      "type": "mention"
+    },
+    {
+      "source": "src\\components\\AIChatHub.tsx",
+      "target": "src\\components\\AIChatHub.tsx::context",
+      "type": "mention"
+    },
+    {
+      "source": "src\\components\\AIChatHub.tsx",
+      "target": "src\\components\\AIChatHub.tsx::response",
+      "type": "mention"
+    },
+    {
+      "source": "src\\components\\AIChatHub.tsx",
+      "target": "src\\components\\AIChatHub.tsx::resetChat",
+      "type": "mention"
+    },
+    {
+      "source": "src\\components\\AIChatHub.tsx",
+      "target": "src\\components\\AIChatHub.tsx::ContextTypeBtn",
+      "type": "mention"
+    },
+    {
+      "source": "src\\components\\KnowledgeGraph.tsx",
+      "target": "react",
+      "type": "import"
+    },
+    {
+      "source": "src\\components\\KnowledgeGraph.tsx",
+      "target": "react-force-graph-2d",
+      "type": "import"
+    },
+    {
+      "source": "src\\components\\KnowledgeGraph.tsx",
+      "target": "framer-motion",
+      "type": "import"
+    },
+    {
+      "source": "src\\components\\KnowledgeGraph.tsx",
+      "target": "lucide-react",
+      "type": "import"
+    },
+    {
+      "source": "src\\components\\KnowledgeGraph.tsx",
+      "target": "src\\components\\KnowledgeGraph.tsx::graphRef",
+      "type": "mention"
+    },
+    {
+      "source": "src\\components\\KnowledgeGraph.tsx",
+      "target": "src\\components\\KnowledgeGraph.tsx::label",
+      "type": "mention"
+    },
+    {
+      "source": "src\\components\\KnowledgeGraph.tsx",
+      "target": "src\\components\\KnowledgeGraph.tsx::fontSize",
+      "type": "mention"
+    },
+    {
+      "source": "src\\components\\KnowledgeGraph.tsx",
+      "target": "src\\components\\KnowledgeGraph.tsx::textWidth",
+      "type": "mention"
+    },
+    {
+      "source": "src\\components\\KnowledgeGraph.tsx",
+      "target": "src\\components\\KnowledgeGraph.tsx::bckgDimensions",
+      "type": "mention"
+    },
+    {
+      "source": "src\\components\\KnowledgeGraph.tsx",
+      "target": "src\\components\\KnowledgeGraph.tsx::ControlButton",
+      "type": "mention"
+    },
+    {
+      "source": "src\\components\\KnowledgeGraph.tsx",
+      "target": "src\\components\\KnowledgeGraph.tsx::LegendItem",
+      "type": "mention"
+    },
+    {
+      "source": "src\\components\\VaultDashboard.tsx",
+      "target": "react",
+      "type": "import"
+    },
+    {
+      "source": "src\\components\\VaultDashboard.tsx",
+      "target": "framer-motion",
+      "type": "import"
+    },
+    {
+      "source": "src\\components\\VaultDashboard.tsx",
+      "target": "lucide-react",
+      "type": "import"
+    },
+    {
+      "source": "src\\components\\VaultDashboard.tsx",
+      "target": "../lib/ai-service",
+      "type": "import"
+    },
+    {
+      "source": "src\\components\\VaultDashboard.tsx",
+      "target": "src\\components\\VaultDashboard.tsx::fetchInsight",
+      "type": "mention"
+    },
+    {
+      "source": "src\\components\\VaultDashboard.tsx",
+      "target": "src\\components\\VaultDashboard.tsx::result",
+      "type": "mention"
+    },
+    {
+      "source": "src\\components\\VaultDashboard.tsx",
+      "target": "src\\components\\VaultDashboard.tsx::StatCard",
+      "type": "mention"
+    },
+    {
+      "source": "src\\components\\VaultDashboard.tsx",
+      "target": "src\\components\\VaultDashboard.tsx::HealthItem",
+      "type": "mention"
+    },
+    {
+      "source": "src\\components\\WikiExplorer.tsx",
+      "target": "react",
+      "type": "import"
+    },
+    {
+      "source": "src\\components\\WikiExplorer.tsx",
+      "target": "framer-motion",
+      "type": "import"
+    },
+    {
+      "source": "src\\components\\WikiExplorer.tsx",
+      "target": "lucide-react",
+      "type": "import"
+    },
+    {
+      "source": "src\\components\\WikiExplorer.tsx",
+      "target": "../lib/ai-service",
+      "type": "import"
+    },
+    {
+      "source": "src\\components\\WikiExplorer.tsx",
+      "target": "src\\components\\WikiExplorer.tsx::handleAISummarize",
+      "type": "mention"
+    },
+    {
+      "source": "src\\components\\WikiExplorer.tsx",
+      "target": "src\\components\\WikiExplorer.tsx::mockContent",
+      "type": "mention"
+    },
+    {
+      "source": "src\\components\\WikiExplorer.tsx",
+      "target": "src\\components\\WikiExplorer.tsx::result",
+      "type": "mention"
+    },
+    {
+      "source": "src\\components\\WikiExplorer.tsx",
+      "target": "src\\components\\WikiExplorer.tsx::articles",
+      "type": "mention"
+    },
+    {
+      "source": "src\\lib\\ai-service.ts",
+      "target": "@google/generative-ai",
+      "type": "import"
+    },
+    {
+      "source": "src\\lib\\ai-service.ts",
+      "target": "src\\lib\\ai-service.ts::API_KEY",
+      "type": "mention"
+    },
+    {
+      "source": "src\\lib\\ai-service.ts",
+      "target": "src\\lib\\ai-service.ts::genAI",
+      "type": "mention"
+    },
+    {
+      "source": "src\\lib\\ai-service.ts",
+      "target": "src\\lib\\ai-service.ts::AIService",
+      "type": "mention"
+    },
+    {
+      "source": "src\\lib\\ai-service.ts",
+      "target": "src\\lib\\ai-service.ts::result",
+      "type": "mention"
+    },
+    {
+      "source": "src\\lib\\ai-service.ts",
+      "target": "src\\lib\\ai-service.ts::prompt",
+      "type": "mention"
+    },
+    {
+      "source": "src\\lib\\ai-service.ts",
+      "target": "src\\lib\\ai-service.ts::result",
+      "type": "mention"
+    },
+    {
+      "source": "src\\lib\\ai-service.ts",
+      "target": "src\\lib\\ai-service.ts::prompt",
+      "type": "mention"
+    },
+    {
+      "source": "src\\lib\\ai-service.ts",
+      "target": "src\\lib\\ai-service.ts::result",
+      "type": "mention"
+    },
+    {
+      "source": "src\\lib\\ai-service.ts",
+      "target": "src\\lib\\ai-service.ts::aiService",
+      "type": "mention"
+    },
+    {
+      "source": "src\\lib\\vault-engine.ts",
+      "target": "minisearch",
+      "type": "import"
+    },
+    {
+      "source": "src\\lib\\vault-engine.ts",
+      "target": "src\\lib\\vault-engine.ts::VaultEngine",
+      "type": "mention"
+    },
+    {
+      "source": "src\\lib\\vault-engine.ts",
+      "target": "src\\lib\\vault-engine.ts::fileList",
+      "type": "mention"
+    },
+    {
+      "source": "src\\lib\\vault-engine.ts",
+      "target": "src\\lib\\vault-engine.ts::entitySummary",
+      "type": "mention"
+    },
+    {
+      "source": "src\\lib\\vault-engine.ts",
+      "target": "src\\lib\\vault-engine.ts::vault",
+      "type": "mention"
+    },
+    {
+      "source": "src\\main.tsx",
+      "target": "react",
+      "type": "import"
+    },
+    {
+      "source": "src\\main.tsx",
+      "target": "react-dom/client",
+      "type": "import"
+    },
+    {
+      "source": "src\\main.tsx",
+      "target": "./index.css",
+      "type": "import"
+    },
+    {
+      "source": "src\\main.tsx",
+      "target": "./App.tsx",
+      "type": "import"
+    },
+    {
+      "source": "vite.config.ts",
+      "target": "vite",
+      "type": "import"
+    },
+    {
+      "source": "vite.config.ts",
+      "target": "@vitejs/plugin-react",
+      "type": "import"
+    }
+  ]
+}
